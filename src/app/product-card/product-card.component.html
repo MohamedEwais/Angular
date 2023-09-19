@@ -1,0 +1,59 @@
+<!-- <div class="product-card text-center p-3 rounded card mb-5">
+  <img
+    [src]="product.thumbnail"
+    alt="{{ product.title }}"
+    class="card-img-top  mx-auto"
+    style="width: 100px;"
+  />
+  <div class="card-body">
+      <span
+        class="d-block"
+        [ngClass]="product.stock === 0 ? 'out-of-stock' : 'in-stock'"
+      >
+    {{ product.stock === 0 ? "Out of Stock" : "In Stock" }}
+  </span>
+    <h2 class="card-title" [routerLink]="['/product', product.id]">
+      {{ product.title }}
+    </h2>
+
+    <p class=" card-text">Category: {{ product.category }}</p>
+    <p class=" card-text">Brand: {{ product.brand }}</p>
+    <p class="price card-text">{{ product.price | currency : "EGP" }}</p>
+    <button class="btn btn-primary mx-2" (click)="onAddToCartClick()">Add to cart</button>
+    <a class="btn btn-success" [routerLink]="['/product', product.id]"
+    >See Details</a
+    >
+  </div>
+
+</div> -->
+
+<div class="product-card">
+ 
+  <div class="product-tumb">
+    <img
+    [src]="product.thumbnail"
+    alt="{{ product.title }}"
+    class="card-img-top  mx-auto"
+   
+  />
+  </div>
+  <div class="product-details">
+    <span
+        class="d-block"
+        [ngClass]="product.stock === 0 ? 'out-of-stock' : 'in-stock'"
+      >
+    {{ product.stock === 0 ? "Out of Stock" : "In Stock" }}
+  </span>
+    <h4><a href="">{{ product.title }}</a></h4>
+    <div class="">{{ product.price | currency : "EGP" }}</div>
+    <p class=" card-text">Category: {{ product.category }}</p>
+    <div class="product-bottom-details">
+     
+        <button class="btn btn-primary p-2 btn-lg me-2" (click)="onAddToCartClick()" >Add to cart</button>
+        <a class="btn btn-success btn  p-2 btn-lg" [routerLink]="['/product', product.id]"
+        >See Details</a
+        >
+  
+    </div>
+  </div>
+</div>

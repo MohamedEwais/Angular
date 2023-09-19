@@ -1,0 +1,145 @@
+<div class="container">
+    <div class="row">
+      <h2 class="mt-3  mb-5" style="font-weight: 700;">Register</h2>
+        <div class="col-4">
+            <form [formGroup]="registerForm" (ngSubmit)="onRegister()" id="form">
+                <div class="input-control">
+                  <label for="email" class="form-label"><h4>Email address</h4></label>
+                  <input
+                   type="email"
+                   id="email"
+                   formControlName="email"
+                   class="form-control"
+                   />
+                   <div class="error"></div>
+
+                  <div
+                   *ngIf="
+                   registerForm.controls['email'].touched && 
+                   registerForm.controls['email'].invalid"
+                   class="text-danger form-text"
+
+
+                   >
+                   <small *ngIf="
+                   registerForm.controls['email'].errors?.['required']"
+                   class="text-danger form-text"
+                   >
+                      This field is required
+                    </small>    </div>
+                  <div
+                   *ngIf="
+                   registerForm.controls['email'].errors?.['email']"
+                   class="text-danger form-text"
+                   >
+                      Invalid email format.
+                    </div>
+                </div>
+                <div class="input-control">
+                  <label for="name" class="form-label"><h4>Name</h4></label>
+                  <input
+                   type="text" 
+                   id="name" 
+                   formControlName="name"
+                   class="form-control"
+                   >
+                  <div 
+                  *ngIf="
+                  registerForm.controls['name'].errors?.['required'] && 
+                  registerForm.controls['name'].touched"
+                  class="text-danger form-text"
+                  >
+                    Name is required.
+                  </div>
+                </div>
+                 <div class="input-control">
+                  <label for="username" class="form-label"><h4>Username</h4></label>
+                  <input
+                   type="text" 
+                   id="username" 
+                   formControlName="username"
+                   class="form-control"
+                   >
+                  <div
+                   *ngIf="
+                   registerForm.controls['username'].errors?.['required'] && 
+                   registerForm.controls['username'].touched"
+                   class="text-danger form-text"
+                   >
+                    Username is required.
+                  </div>
+                  <div
+                   *ngIf="
+                   registerForm.controls['username'].errors?.['pattern'] && 
+                   registerForm.controls['username'].touched"
+                   class="text-danger form-text"
+                   >
+                    Username should not contain spaces.
+                  </div>
+                </div>
+                 <div class="input-control">
+                  <label for="password" class="form-label"><h4>Password</h4></label>
+                  <input
+                   type="password" 
+                   id="password" 
+                   formControlName="password"
+                   class="form-control"
+                   >
+                  <div
+                   *ngIf="
+                   registerForm.controls['password'].errors?.['required'] && 
+                   registerForm.controls['password'].touched"
+                   class="text-danger form-text"
+                   >
+                    Password is required.
+                  </div>
+                  <div
+                   *ngIf="
+                   registerForm.controls['password'].hasError('pattern') && 
+                   registerForm.controls['password'].touched">
+                   <small *ngIf="
+                   registerForm.controls['password'].errors?.['minlength']"
+                   class="text-danger form-text"
+                   > Min. length is 8 </small>
+              
+                     contain one uppercase letter at least,
+                      one lowercase letter at least,
+                       one digit at least,
+                        and one special character at least.
+                  </div>
+                </div>
+                <div class="input-control">
+                  <label for="confirmPassword" class="form-label"><h4>Confirm Password</h4></label>
+                  <input
+                   type="password" 
+                   id="confirmPassword" 
+                   formControlName="confirmPassword"
+                   class="form-control"
+                   >
+                  <div
+                   *ngIf="
+                   registerForm.controls['confirmPassword'].errors?.['required'] && 
+                   registerForm.controls['confirmPassword'].touched"
+                   class="text-danger form-text"
+                   >
+                    Confirm Password is required.
+                  </div>
+                  <div
+                   *ngIf="
+                   registerForm.controls['confirmPassword'].errors?.['passwordMismatch']&& 
+                   registerForm.controls['confirmPassword'].touched"
+                   class="text-danger form-text"
+                   >
+                    Passwords do not match.
+                  </div>
+                </div>
+                <br>
+                <button 
+                type="submit" 
+                [disabled]="registerForm.invalid">
+                Register</button>
+              </form>
+        </div>
+    </div>
+    
+</div>
